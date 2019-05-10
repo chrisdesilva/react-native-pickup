@@ -16,7 +16,7 @@ const getCourts = userLocation => {
     .get('/businesses/search', {
       params: {
         limit: 10,
-        categories: 'basketballcourt',
+        term: 'basketball court',
         ...userLocation,
       },
     })

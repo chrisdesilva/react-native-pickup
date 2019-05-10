@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, SafeAreaView, StyleSheet } from 'react-native'
+import { SafeAreaView, StyleSheet } from 'react-native'
 import { Location, Permissions } from 'expo'
 import API from './API'
 import Map from './components/Map'
@@ -18,23 +18,6 @@ export default class App extends React.Component {
 
   componentWillMount() {
     this.getLocationAsync();
-  }
-
-  getLocationAsync = async () => {
-    let { status } = await Permissions.askAsync(Permissions.LOCATION);
-    if (status !== 'granted') {
-      this.setState({
-        errorMessage: 'Permission to access location was denied'
-      });
-    }
-
-    let location = await Location.getCurrentPositionAsync({});
-    const region = {
-      latitude: location.coords.latitude,
-      longitude: location.coords.longitude,
-      ...deltas
-    };
-    await this.setState({ region });
   }
 
   getCourts = async () => {
