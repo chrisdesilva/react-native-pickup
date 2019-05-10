@@ -12,11 +12,10 @@ class Map extends React.Component {
     }
 
     render() {
-        const { region } = this.props
         return (
             <MapView 
                 style={styles.container}
-                region={region}
+                region={this.props.region}
                 showsUserLocation
                 showsMyLocationButton
             >
