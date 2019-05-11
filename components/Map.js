@@ -15,6 +15,7 @@ class Map extends React.Component {
             <MapView 
                 style={styles.container}
                 region={this.props.region}
+                onRegionChangeComplete={this.props.moveMap}
                 showsUserLocation
                 showsMyLocationButton
             >

@@ -45,12 +45,22 @@ export default class App extends React.Component {
     await this.getCourts();
   }
 
+  onMoveMap = region => {
+    this.setState({ region })
+    let query = {
+      lat: region.latitude,
+      lng: region.longitude
+    }
+    this.getCourts()
+  }
+
   render() {
     return (
       <SafeAreaView style={styles.container}>
         <Map
           region={this.state.region}
           places={this.state.courts}
+          moveMap={this.onMoveMap}
         />
       </SafeAreaView>
     );

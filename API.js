@@ -25,6 +25,8 @@ const getCourts = userLocation => {
         return {
           name: business.name,
           coords: business.coordinates,
+          address: business.location.address1,
+          zip: business.location.zip_code
         }
       })
     )
